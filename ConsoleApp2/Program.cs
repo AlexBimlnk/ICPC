@@ -18,6 +18,9 @@ internal class Program
     {
         //SqrtDecomposition.SumOnSegment();
 
-        E_Problem_SegTree_Training.Start();
+        //E_Problem_SegTree_Training.Start();
+
+        FenwickTree.Start();
+
     }
 }
