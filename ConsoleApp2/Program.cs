@@ -12,11 +12,12 @@ using ConsoleApp2;
 
 internal class Program
 {
+    
+
     private static void Main(string[] args)
     {
         //SqrtDecomposition.SumOnSegment();
 
-
-
+        E_Problem_SegTree_Training.Start();
     }
 }
