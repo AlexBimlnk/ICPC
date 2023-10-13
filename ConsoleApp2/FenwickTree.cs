@@ -17,6 +17,13 @@ internal class FenwickTree
             Build(data);
         }
 
+        protected BIT(IReadOnlyList<int> data, int initialValue)
+        {
+            _tree = new int[data.Count];
+            Array.Fill(_tree, initialValue);
+            Build(data);
+        }
+
         protected int GetPreviousBucketIndex(int current)
         {
             return (current & (current + 1)) - 1;
@@ -68,6 +75,39 @@ internal class FenwickTree
         }
     }
 
+    private class BITMax : BIT
+    {
+        public BITMax(IReadOnlyList<int> data) : base(data, int.MinValue) { }
+
+        protected override void Build(IReadOnlyList<int> data)
+        {
+            for (int i = 0; i < _tree.Length; i++)
+            {
+                UpdateBuckets(i, data[i]);
+            }
+        }
+
+        public void UpdateBuckets(int index, int value)
+        {
+            for (int i = index; i < _tree.Length; i = GetNextBucketIndex(i))
+            {
+                _tree[i] = Math.Max(_tree[i], value);
+            }
+        }
+
+        public int GetMax(int index)
+        {
+            var result = int.MinValue;
+
+            for (int i = index; i > 0; i = GetPreviousBucketIndex(i))
+            {
+                result = Math.Max(_tree[i], result);
+            }
+
+            return result;
+        }
+    }
+
     public static void Start()
     {
         var input = Console.ReadLine()
@@ -75,8 +115,8 @@ internal class FenwickTree
             .Select(int.Parse)
             .ToList();
 
-        var bit = new BITSum(input);
+        var bit = new BITMax(input);
 
-        Console.WriteLine(bit.GetSum(3, 5));
+        Console.WriteLine(bit.GetMax(5));
     }
 }
