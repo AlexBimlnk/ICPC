@@ -22,16 +22,21 @@ internal class Program
 
         //FenwickTree.Start();
 
-        var nums = new List<int>() { 12, 34, 7, 1, 8, 9 };
+        var nums = new List<int>() {
+                                                                30,70,
 
-        var bst = new BinarySearchTree();
+                            8, 25,                              40, 50,                                 76, 88,
 
-        nums.ForEach(bst.Add);
+            1, 3, 7,    15, 21, 23,     26, 28,     35, 38,     42, 49,     56, 67,     71, 73, 75,     77, 85,     89, 97};
 
-        Console.WriteLine(bst.Find(9));
-        Console.WriteLine(bst.Find(34));
+        var bTree = new BTree(3);
 
-        bst.Remove(9);
+        nums.ForEach(bTree.Add);
+
+        var bTree2 = new BTree(2);
+
+        Enumerable.Range(1, 10).ToList().ForEach(bTree2.Add);
+
 
         Console.ReadKey();
     }
