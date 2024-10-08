@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023;
 
 /// <summary>
 /// Дерево отрезков.
@@ -76,7 +76,7 @@ public sealed class SegmentsTree
                 // Если левый указатель указывает на правого потомка
                 if (lPointer % 2 == 1)
                     result += _tree[lPointer++];
-                
+
                 // Если правый указатель указывает на левого потомка
                 if (rPointer % 2 == 0)
                     result += _tree[rPointer--];

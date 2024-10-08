@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023;
 
 /// <summary>
 /// Двоичное дерево поиска.

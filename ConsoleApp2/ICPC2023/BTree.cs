@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023;
 public sealed class BTree
 {
     private int _rank; // count values
@@ -90,7 +90,7 @@ public sealed class BTree
         }
 
         // Пытается добавить без погружения строго на ноду
-        private void StrongAdd(int value, Node leftNode, Node rightNode) 
+        private void StrongAdd(int value, Node leftNode, Node rightNode)
         {
             var searchIndex = GetSearchableIndex(value);
 
@@ -140,7 +140,7 @@ public sealed class BTree
                 _values.Add(value);
                 return;
             }
-            
+
             var searchIndex = GetSearchableIndex(value);
             var selectedNode = _pointers[searchIndex];
             if (selectedNode == null) // Если для данного диапазона нет нод

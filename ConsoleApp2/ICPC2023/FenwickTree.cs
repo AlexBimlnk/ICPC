@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023;
 internal class FenwickTree
 {
     private abstract class BIT
@@ -26,12 +26,12 @@ internal class FenwickTree
 
         protected int GetPreviousBucketIndex(int current)
         {
-            return (current & (current + 1)) - 1;
+            return (current & current + 1) - 1;
         }
 
         protected int GetNextBucketIndex(int current)
         {
-            return current | (current + 1);
+            return current | current + 1;
         }
 
         protected abstract void Build(IReadOnlyList<int> data);

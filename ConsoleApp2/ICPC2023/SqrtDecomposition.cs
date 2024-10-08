@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023;
 
 /// <summary>
 /// Корневая декомпозиция.
@@ -18,7 +18,7 @@ public sealed class SqrtDecomposition
     {
         var nums = Console.ReadLine()!
             .Split(' ')
-            .Select(int.Parse) 
+            .Select(int.Parse)
             .ToList();
 
         // Топорное решение будет медленным при большом кол-ве запросов
@@ -50,7 +50,7 @@ public sealed class SqrtDecomposition
 
             var left = 1;
             var right = 2;
-            
+
             // expected: 5
 
             return prefixSum[right + 1] - prefixSum[left];
@@ -92,13 +92,13 @@ public sealed class SqrtDecomposition
             {
                 for (int i = 0; i < nums.Count; ++i)
                 {
-                    segmentSums[GetSegmentIndexByGlobalIndex(i)] += nums[i]; 
+                    segmentSums[GetSegmentIndexByGlobalIndex(i)] += nums[i];
                 }
             }
 
             void Update(int index, int value)
             {
-                nums[index] += value; 
+                nums[index] += value;
             }
 
             int GetSum(int left, int rigth)
@@ -117,7 +117,7 @@ public sealed class SqrtDecomposition
                 {
                     // От левой границы диапазона до конца бакета
                     for (
-                        int i = left; 
+                        int i = left;
                         GetSegmentIndexByGlobalIndex(i) == GetSegmentIndexByGlobalIndex(left);
                         i++)
                     {

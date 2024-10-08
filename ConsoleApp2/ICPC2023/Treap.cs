@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023;
 
 public class Treap
 {
@@ -19,7 +19,7 @@ public class Treap
     {
         if (left == null)
             return right;
-        if (right == null) 
+        if (right == null)
             return left;
 
         if (left.Y < right.Y)

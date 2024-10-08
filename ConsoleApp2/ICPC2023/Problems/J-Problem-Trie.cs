@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023.Problems;
 internal class J_Problem_Trie
 {
     public sealed class Trie
@@ -82,8 +82,8 @@ internal class J_Problem_Trie
         var nextNode = currentNode.Children[word[nextPosWord]];
 
         // left
-        var leftPos = (I: startPos.I, J: startPos.J - 1);
-        if (leftPos.J >= 0 
+        var leftPos = (startPos.I, J: startPos.J - 1);
+        if (leftPos.J >= 0
             && PossiblePos(leftPos, pickedPos, answerMap, map, nextNode.Key))
         {
             if (TryFind(
@@ -92,13 +92,13 @@ internal class J_Problem_Trie
             {
                 return true;
             }
-            
+
             pickedPos.Remove(leftPos);
             answerMap[leftPos.I, leftPos.J] = 0;
         }
 
         // down
-        var downPos = (I: startPos.I + 1, J: startPos.J);
+        var downPos = (I: startPos.I + 1, startPos.J);
         if (downPos.I < 8
             && PossiblePos(downPos, pickedPos, answerMap, map, nextNode.Key))
         {
@@ -114,8 +114,8 @@ internal class J_Problem_Trie
         }
 
         // right
-        var rightPos = (I: startPos.I, J: startPos.J + 1);
-        if (rightPos.J < 8 
+        var rightPos = (startPos.I, J: startPos.J + 1);
+        if (rightPos.J < 8
             && PossiblePos(rightPos, pickedPos, answerMap, map, nextNode.Key))
         {
             if (TryFind(
@@ -130,8 +130,8 @@ internal class J_Problem_Trie
         }
 
         // up
-        var upPos = (I: startPos.I - 1, J: startPos.J);
-        if (upPos.I >= 0 
+        var upPos = (I: startPos.I - 1, startPos.J);
+        if (upPos.I >= 0
             && PossiblePos(upPos, pickedPos, answerMap, map, nextNode.Key))
         {
             if (TryFind(
@@ -144,7 +144,7 @@ internal class J_Problem_Trie
             pickedPos.Remove(upPos);
             answerMap[upPos.I, upPos.J] = 0;
         }
-        
+
         return false;
     }
 
@@ -170,7 +170,7 @@ internal class J_Problem_Trie
                     {
                         return;
                     }
-                    
+
                     answerMap[i, j] = 0;
                 }
             }

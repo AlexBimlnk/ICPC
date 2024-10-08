@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using ConsoleApp2;
 using System.Collections.Immutable;
+using ConsoleApp2.ICPC2024.Problems;
 
 //var input = Console.ReadLine()
 //        .Split(' ')
@@ -15,10 +16,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        J_Problem_Trie.Start();
-
-        
-
-        Console.ReadKey();
+        K.Run();
     }
 }

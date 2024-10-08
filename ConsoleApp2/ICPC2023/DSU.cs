@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.ICPC2023;
 
 public sealed class DSU
 {
@@ -25,7 +25,7 @@ public sealed class DSU
 
     public int FindSetLeader(int value) // Возвращает лидера множества, в котором находится value
     {
-        if (value == _parent[value]) 
+        if (value == _parent[value])
             return value;
 
         return FindSetLeader(_parent[value]);
@@ -33,7 +33,7 @@ public sealed class DSU
 
     // Поиск с оптимизацией не просто скачет по узлам,
     // А запоминает найденный последний
-    public int FindSetLeaderOptimize(int value) 
+    public int FindSetLeaderOptimize(int value)
     {
         if (value == _parent[value])
             return value;
@@ -54,7 +54,7 @@ public sealed class DSU
             // выгодно объединять маленькое с большим а не наоборот
             if (_size[firstLeader] < _size[secondLeader])
                 (firstLeader, secondLeader) = (secondLeader, firstLeader);
-            
+
             _parent[secondLeader] = firstLeader;
             _size[firstLeader] += _size[secondLeader];
         }
